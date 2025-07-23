@@ -2,9 +2,9 @@ def gv
 
 pipeline {
     agent any
-    tools {
-        nodejs 'nodejs_22.x' // Ensure the name matches exactly as configured in Jenkins
-    }
+//     tools {
+//         nodejs 'nodejs_22.x' // Ensure the name matches exactly as configured in Jenkins
+//     }
     stages {
         stage('init') {
             steps {
