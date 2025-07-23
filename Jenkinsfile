@@ -16,14 +16,14 @@ pipeline {
         stage('install dependencies') {
             steps {
                 script {
-                    sh "npm install"
+                    sh "/usr/bin/npm install"
                 }
             }
         }
            stage('building the project') {
                     steps {
                         script {
-                            sh "npm run build"
+                            sh "/usr/bin/npm run build"
                         }
                     }
                 }
