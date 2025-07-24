@@ -16,14 +16,20 @@ pipeline {
         stage('install dependencies') {
             steps {
                 script {
-                    sh "/usr/bin/npm install"
+                dir('api'){
+                sh "/usr/bin/npm install"
+                }
+
                 }
             }
         }
            stage('building the project') {
                     steps {
                         script {
-                            sh "/usr/bin/npm run build"
+                          dir('api'){
+ sh "/usr/bin/npm run build"                                        }
+
+
                         }
                     }
                 }
