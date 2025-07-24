@@ -24,8 +24,11 @@ COPY --from=ui-build /app/my-app/build /app/my-app/build
 COPY --from=server-build /app/api /app/api
 
 # Set proper permissions for security
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-RUN chown -R appuser:appgroup /app
+#RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+#RUN chown -R appuser:appgroup /app
+RUN addgroup --system appgroup \
+    && adduser --system --ingroup appgroup appuser
+
 USER appuser
 
 # Expose the API port
