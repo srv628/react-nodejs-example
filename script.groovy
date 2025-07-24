@@ -14,7 +14,7 @@ def deployApp(){
     echo "deploying the code"
 
     sshagent(['ec2-node-react']) {
-        sh "ssh -o StrictHostKeyChecking=no ec2-user@g13.201.191.234 ${dockerRunCommand}"
+        sh "ssh -o StrictHostKeyChecking=no ec2-user@13.201.191.234 ${dockerRunCommand}"
     }
 
 
