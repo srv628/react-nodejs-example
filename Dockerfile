@@ -16,7 +16,7 @@ RUN npm install --only=production
 COPY api/ ./
 
 # Create final image
-FROM node:18-alpine
+FROM node:22
 WORKDIR /app
 # Copy built React app from ui-build stage
 COPY --from=ui-build /app/my-app/build /app/my-app/build

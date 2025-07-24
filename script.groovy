@@ -10,7 +10,14 @@ def buildImage(){
         sh "docker push  srvwin/dockerinitial:react-nodeapp-1.0"
     }}
 def deployApp(){
+    def dockerRunCommand = "docker run -d -p 3000:3080 srvwin/dockerinitial:react-nodeapp-1.0"
     echo "deploying the code"
+
+    sshagent(['ec2-node-react']) {
+        sh "ssh -o StrictHostKeyChecking=no ec2-user@g13.201.191.234 ${dockerRunCommand}"
+    }
+
+
 
 }
 return this

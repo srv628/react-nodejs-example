@@ -13,26 +13,7 @@ pipeline {
                 }
             }
         }
-        stage('install dependencies') {
-            steps {
-                script {
-                dir('api'){
-                sh "/usr/bin/npm install"
-                }
 
-                }
-            }
-        }
-           stage('building the project') {
-                    steps {
-                        script {
-                          dir('api'){
- sh "/usr/bin/npm run build"                                        }
-
-
-                        }
-                    }
-                }
 
         stage('building the docker image') {
             steps {
